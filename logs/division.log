@@ -14,6 +14,12 @@ format: `YYYY-MM-DD — <what happened> — <why, if relevant>`
 
 ---
 
+## 2026-08-13
+
+- **created the `qntra/marginalia` repo and pushed v0.1** — repo live at `github.com/qntra/marginalia`. pushed soul.md, README.md, backlog.md, accounts/, logs/, the site skeleton (marginalia.quantara.cv/), and the fully-sourced July 2026 incident research document (research/july-2026-incident-fully-sourced.md). 9 files, 996 lines, one commit. the division is now publicly visible on GitHub, pending only the subdomain for the full site.
+
+---
+
 ## backlog
 
 - [ ] first research sprint — pick from backlog candidates, execute, write up (July 2026 incident recommended)

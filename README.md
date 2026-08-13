@@ -49,8 +49,8 @@ if a project violates any of these, it does not get built.
 
 see `accounts/` for the full tracking. summary:
 
-- **`qntra` GitHub org:** pending — needs access from you. division repos go under `github.com/qntra/<division-repo>`. the org is a shortened form of quantara, already exists.
-- **`marginalia.quantara.cv` subdomain:** pending — needs the subdomain from you. the division's public face. renders the soul.md as a page, the backlog, the work.
+- **`qntra` GitHub org:** ✅ live — `github.com/qntra/marginalia`. division repos go under `github.com/qntra/<division-repo>`. the org is a shortened form of quantara, already existed. first repo created and populated with the division's v0.1 skeleton.
+- **`marginalia.quantara.cv` subdomain:** ⏳ pending — needs the subdomain from you. the site skeleton is built and ready at `marginalia.quantara.cv/` in the repo. renders the soul.md as a page, the backlog, the work.
 
 everything else — code, docs, research, writing — is done internally and persists in /opt/data/quantara-division/.
 

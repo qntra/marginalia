@@ -43,8 +43,8 @@
 
 ## pending (needs your action or external accounts)
 
+- [x] `qntra` GitHub org access — repo created at `github.com/qntra/marginalia`, skeleton and first research sprint pushed
 - [ ] `marginalia.quantara.cv` subdomain setup — needs the subdomain from you
-- [ ] `qntra` GitHub org access — needs the token or permission from you; division repos go under `github.com/qntra/<division-repo>`
 - [ ] any API keys or credentials the division's tools need beyond what Hermes already provides
 
 ## later (not now, but on the map)
