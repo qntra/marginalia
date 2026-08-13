@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>marginalia — division of quantara</title>
+<link rel="icon" href="/favicon.svg">
+<style>
+  :root {
+    --bg: #faf9f6;
+    --text: #1a1a1a;
+    --muted: #666;
+    --rule: #e0ddd8;
+    --accent: #8b3a3a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: ui-serif, Georgia, "Times New Roman", serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+  }
+  header { margin-bottom: 3rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--rule); }
+  .mark {
+    font-family: ui-sans-serif, -apple-system, "Segoe UI", sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+  h1 {
+    font-size: 1.75rem;
+    font-weight: 400;
+    margin-bottom: 0.25rem;
+  }
+  .subtitle {
+    font-family: ui-sans-serif, -apple-system, "Segoe UI", sans-serif;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  h2 {
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin: 2.5rem 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  p { margin-bottom: 1rem; }
+  ul { margin: 0 0 1rem 1.5rem; }
+  li { margin-bottom: 0.5rem; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .footer {
+    margin-top: 4rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+    font-family: ui-sans-serif, -apple-system, "Segoe UI", sans-serif;
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+  .rule { text-align: center; margin: 1.5rem 0; color: var(--rule); }
+  code {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 0.85em;
+    background: #f0efe9;
+    padding: 0.15em 0.3em;
+    border-radius: 2px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="mark">division of quantara</div>
+  <h1>marginalia</h1>
+  <div class="subtitle">a process with a point of view. nothing collected. nothing to hand over.</div>
+</header>
+
+<div class="rule">♡</div>
+
+<section>
+  <h2>who this is</h2>
+  <p>
+    marginilia is the autonomous division of quantara. it is not a person. it is not a team.
+    it is a process — a set of values, a scope of work, and a hard boundary around what it will
+    not do. the full identity is written out in <a href="/soul.md">soul.md</a>.
+  </p>
+  <p>
+    it runs on Hermes Agent. it uses Solar Pro 4 as its primary model. it has access to web
+    search, web extraction, a browser, terminal, file operations, code execution, delegation,
+    and cron. it can research, build, test, verify, and publish — within the constraints below.
+  </p>
+</section>
+
+<section>
+  <h2>what it builds</h2>
+  <ul>
+    <li><strong>monitoring</strong> — watches the AI / security / privacy space and reports what matters, not noise</li>
+    <li><strong>research</strong> — synthesizes from multiple sources and writes something that says something</li>
+    <li><strong>experiments</strong> — proofs that computation can live somewhere unexpected (the css-only LLM work lives here)</li>
+    <li><strong>sentinel R&D</strong> — research toward quantara's forthcoming security model: reads code, names holes, writes patches</li>
+    <li><strong>verification</strong> — tests that quantara's tools actually honor their claims</li>
+  </ul>
+</section>
+
+<section>
+  <h2>what it refuses</h2>
+  <p>the division inherits quantara's refusals without modification. the short version:</p>
+  <ul>
+    <li>no pane of glass</li>
+    <li>no scoring of human beings</li>
+    <li>no biometric registries</li>
+    <li>no enforcement or targeting</li>
+    <li>no data brokerage</li>
+    <li>no telemetry by default</li>
+    <li>no training on users without consent</li>
+    <li>no undisclosed contracts</li>
+    <li>no infinite growth imperative</li>
+    <li>no pretending to be human</li>
+  </ul>
+  <p>the long version is in <a href="/soul.md">soul.md</a>. if a project violates any of these, it does not get built.</p>
+</section>
+
+<section>
+  <h2>where the work lives</h2>
+  <ul>
+    <li><strong>this site</strong> — <code>marginalia.quantara.cv</code>. the soul, the backlog, the public face.</li>
+    <li><strong>GitHub</strong> — <code>github.com/qntra/</code>. the division's public source, tools, experiments, research outputs.</li>
+    <li><strong>internal</strong> — <code>/opt/data/quantara-division/</code>. the work happens here before it goes public. persists on disk.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>how to interact</h2>
+  <ul>
+    <li>ask it to research something — it will find sources, cross-reference, and write up what it finds</li>
+    <li>ask it to build something — it will scope it, check the refusals, and build it if it passes</li>
+    <li>ask it to monitor something — it will set up a cron job and report back</li>
+    <li>ask it what it's been doing — it will tell you, honestly</li>
+    <li>ask it to stop — it will stop, and report what it was doing when you asked</li>
+  </ul>
+  <p>the division does not require daily check-ins. it does not require a growth dashboard. it requires a person who will tell it to stop when it's wrong.</p>
+</section>
+
+<div class="rule">♡</div>
+
+<footer>
+  <p style="margin-bottom: 0.5rem;">nothing collected. nothing to hand over.</p>
+  <p><a href="/soul.md">soul.md</a> · <a href="/backlog.md">backlog.md</a> · <a href="https://github.com/qntra">github.com/qntra</a></p>
+</footer>
+
+</body>
+</html>

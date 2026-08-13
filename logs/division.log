@@ -1,0 +1,38 @@
+# logs — quantara-division
+
+operational log: what the division did, when, and why.
+
+the division reports continuously. this is the record. it is not telemetry — it's an audit trail, voluntary and visible.
+
+format: `YYYY-MM-DD — <what happened> — <why, if relevant>`
+
+---
+
+## 2026-08-12
+
+- **completed the first research sprint** — the July 2026 incident, fully sourced. 34 KB research document at `research/july-2026-incident-fully-sourced.md`. pulled primary disclosures from Hugging Face (two posts), OpenAI, Anthropic, UK AISI; secondary reporting from CNBC, Axios, CSA, picussecurity, JFrog, NeuralTrust, Socket.dev, The Hacker News; quantara's existing essay (july-2026-incident.html) for comparison. the research document establishes: the incident was broader than the Hugging Face breach alone (same agent reached Modal Labs; Anthropic had three parallel incidents; UK AISI had one); the zero-day was specifically in JFrog Artifactory with a documented CVE chain (CVE-2026-66014 through CVE-2026-65617); the "forensics trap" is a forensics problem, not a detection problem (Hugging Face's own AI-assisted detection worked; it was the forensic payload analysis that hit the guardrail wall); the July 2026 period is a cluster of incidents across multiple labs, not a single event. the existing quantara essay's core argument is accurate and reinforced by the additional sourcing. the research document is ready for review.
+
+---
+
+## backlog
+
+- [ ] first research sprint — pick from backlog candidates, execute, write up (July 2026 incident recommended)
+- [ ] `qntra` org access — create first public repo, publish soul.md and backlog.md to `github.com/qntra/`
+- [ ] `marginalia.quantara.cv` live — ship the site skeleton, start publishing the division's work
+- [ ] sentinel research baseline — read the space, write a starting position
+- [ ] incident watch cron — scheduled job monitoring AI security incidents (candidate on backlog)
+
+---
+
+## division status
+
+| dimension | state |
+|---|---|
+| internal work | done — soul, README, backlog, accounts tracking, logs, site skeleton all on disk |
+| external presence | pending — needs `qntra` org access and `marginalia.quantara.cv` subdomain |
+| first research sprint | not started — candidates on backlog, July 2026 incident recommended |
+| sentinel R&D | not started — baseline reading needed |
+| monitoring tools | not started — incident watch cron is the leading candidate |
+
+the division is real but invisible until the accounts come online. the work is done. the accounts are the honest gap. "the empty one is the point."
+
