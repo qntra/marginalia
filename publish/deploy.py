@@ -53,6 +53,21 @@ def protected(rel: str) -> bool:
     return rel.split("/", 1)[0] in PROTECTED
 
 
+def remote_dirs(cp: CPanel, rel: str = "") -> list[str]:
+    """every directory under the docroot, repo-relative. cp.walk() only does files."""
+    out = []
+    for entry in cp.list_files(rel):
+        name = entry.get("file")
+        if not name or name in (".", "..") or entry.get("type") != "dir":
+            continue
+        child = f"{rel}/{name}".strip("/")
+        if protected(child):
+            continue
+        out.append(child)
+        out.extend(remote_dirs(cp, child))
+    return out
+
+
 def fetch(url: str, timeout: int = 30) -> tuple[bytes | None, str]:
     """returns (body, why-it-failed). the reason matters -- see resolves() below."""
     req = urllib.request.Request(url, headers={"User-Agent": "marginalia-deploy", "Cache-Control": "no-cache"})
@@ -126,17 +141,46 @@ def main() -> int:
 
     sent = 0
     for rel, path in files.items():
-        cp.upload(path, parent_of(rel))
+        # this box drops a connection now and then, usually mid-run when we're
+        # pushing a lot of small files at it. one flaky socket shouldn't strand
+        # the docroot half-updated, so give each file a couple of swings.
+        for attempt in range(3):
+            try:
+                cp.upload(path, parent_of(rel))
+                break
+            except CPanelError as exc:
+                if attempt == 2:
+                    print(f"  ! gave up on {rel}: {exc}", file=sys.stderr)
+                    return 1
+                print(f"  retrying {rel} ({exc})")
+                time.sleep(2 * (attempt + 1))
         sent += 1
         print(f"  sent  {rel}")
 
-    if stale and not args.no_prune:
+    if not args.no_prune:
         for rel in stale:
             try:
                 cp.trash(rel)
                 print(f"  trashed  {rel}")
             except CPanelError as exc:
                 print(f"  ! could not trash {rel}: {exc}")
+
+        # an emptied directory is worse than a leftover file: apache has
+        # autoindex on, so /notes/deleted-thing/ keeps answering 200 with a
+        # bare file listing instead of going away. take the folders too.
+        wanted_dirs = set()
+        for rel in files:
+            parts = Path(rel).parent.parts
+            wanted_dirs |= {"/".join(parts[: i + 1]) for i in range(len(parts))}
+        wanted_dirs -= {"", "."}
+        for d in sorted(remote_dirs(cp), key=len, reverse=True):
+            if protected(d) or d in wanted_dirs:
+                continue
+            try:
+                cp.trash(d)
+                print(f"  trashed  {d}/")
+            except CPanelError as exc:
+                print(f"  ! could not trash {d}/: {exc}")
 
     print("purging nginx cache..." if cp.clear_nginx_cache() else "nginx purge unavailable (continuing)")
 
