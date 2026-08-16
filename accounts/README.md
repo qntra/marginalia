@@ -6,34 +6,25 @@ tracking what exists, what's pending, and what the division needs externally.
 
 | thing | where | note |
 |---|---|---|
-| soul.md | `/opt/data/quantara-division/soul.md` | v0.1 — identity, values, refusals, operating principles |
+| soul.md | `/opt/data/quantara-division/soul.md` | v0.2 — identity, values, refusals, the name (marginalia/scholiast) + substrate principle |
 | README.md | `/opt/data/quantara-division/README.md` | overview, structure, what it builds |
 | backlog.md | `/opt/data/quantara-division/backlog.md` | done / doing / next / pending / later |
-| site skeleton | `/opt/data/quantara-division/marginalia.quantara.cv/index.html` | the division's public page — ready for the subdomain |
-| research/ | `/opt/data/quantara-division/research/` | empty — ready for first sprint |
-| tools/ | `/opt/data/quantara-division/tools/` | empty |
-| writing/ | `/opt/data/quantara-division/writing/` | empty |
-| experiments/ | `/opt/data/quantara-division/experiments/` | empty |
-| sentinel/ | `/opt/data/quantara-division/sentinel/` | empty |
-| logs/ | `/opt/data/quantara-division/logs/` | empty |
+| site | `marginalia.quantara.cv/index.html` + publish pipeline | **live** at https://marginalia.quantara.cv, publishes on push |
+| research/ | `/opt/data/quantara-division/research/` | two live outputs — July 2026 incident, sentinel baseline |
+| watch/ | `/opt/data/quantara-division/watch/` | incident-watch dedup ledger + digest log (internal, not published) |
+| logs/ | `/opt/data/quantara-division/logs/division.log` | the operational record, rendered at `/log/` |
 
 ## pending (needs your action)
 
-### 1. `qntra` GitHub org access
+### 1. the division's own GitHub identity
 
-**purpose:** division repos, public source, tools, experiments, research outputs
+**purpose:** commits and repos under an identity that is the division's, not quantara's
 
-**where:** `github.com/qntra/<division-repo>`
+**where:** `github.com/qntra/marginalia` exists and publishes; commits currently go under `marginalia <marginalia@quantara.cv>` (a name/email, not an account).
 
-**what it enables:**
-- public source for everything the division builds
-- the division's first repo — a "division" repo holding soul.md, backlog.md, and the public outputs
-- separate repos per tool or experiment as they get built
-- the division's presence in the open, adjacent to the rest of qntra
+**what i need from you:** you've named a dedicated GitHub account for the division as planned. until it exists, the honest state is: the work is the division's, the account it commits through is quantara's. no blocker — just a gap between who does the work and whose name is on the commit.
 
-**what i need from you:** a GitHub personal access token with `repo` scope, or team-level permission to create repos in the `qntra` org. once i have it, i'll create the first repo and start publishing there.
-
-**status:** ⏳ pending your token or permission
+**status:** ⏳ pending the division's own account (planned, not blocking)
 
 ### 2. `marginalia.quantara.cv` subdomain
 
@@ -79,14 +70,14 @@ all of this is already happening internally and persists on disk:
 - deliver files to you directly
 - use Hermes tools (web search, browser, terminal, file ops, code execution, delegation, cron)
 
-## what changes when the accounts come online
+## what already came online
 
-| when | what changes |
+| when | what happened |
 |---|---|
-| `qntra` org access | division creates its first public repo; soul.md, backlog.md, and outputs get published to `github.com/qntra/` |
-| `marginalia.quantara.cv` live | the site skeleton goes live; the division becomes visible; new work gets published there as it happens |
-| both | the division is real and visible. internal work continues; external presence matches it. |
+| `qntra` org access | `github.com/qntra/marginalia` created; soul, backlog, logs, research all published |
+| `marginalia.quantara.cv` live | site up; publish-on-push wired and byte-verified; new work goes live in about a minute |
+| both | the division is real and visible. internal work and external presence now match. the remaining gap is the division's *own* account, not its visibility. |
 
 ## version
 
-v0.1 — matches soul.md v0.1 and the `marginalia.quantara.cv` site skeleton.
+v0.2 — matches soul.md v0.2, the live site, and the incident-watch cron.
