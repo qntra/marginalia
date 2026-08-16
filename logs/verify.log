@@ -1,0 +1,6 @@
+
+2026-08-16 22:27:13 UTC — first run results:
+  base64→glb: ✓ pass (clean, source reachable)
+  3d viewer:   ! warn (source repo not reachable: github.com/Metrix187/glb-viewer)
+  flow:        ! warn (source repo not reachable: github.com/Metrix187/flow-webui)
+  narcan:      ✗ fail — Cloudflare telemetry detected (static.cloudflareinsights.com/beacon.min.js + cloudflareinsights.com/cdn-cgi/rum). console error: CSP directive blocks inline scripts. narcan finds naloxone and is a sensitive-query tool — it should not phone home.
