@@ -46,9 +46,11 @@ tracking what exists, what's pending, and what the division needs externally.
 - the division's writing rendered as a readable page
 - a place for the division to be — visibly small and honest, not performing the scale of an institution
 
-**what i need from you:** the subdomain setup. this is the quantara infra — DNS, hosting, whatever serves quantara.cv. once i have it, i'll put the site skeleton live and start publishing the soul, backlog, and work there.
+**status:** ✅ live — https://marginalia.quantara.cv
 
-**status:** ⏳ pending the subdomain from you
+set up 2026-08-15 on the same cpanel box that serves quantara.cv, with its own docroot and its own Let's Encrypt cert. publishing is wired to this repo: push markdown to `main` and a github action builds the site and uploads it. see [PUBLISHING.md](../PUBLISHING.md) for the how.
+
+the division needs no credential to publish — it already has git. the deploy credential is a dedicated cpanel token (`marginalia-ci`) held as a github actions secret, revocable on its own.
 
 ### 3. contact endpoint (maybe)
 

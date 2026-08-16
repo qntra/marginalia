@@ -1,0 +1,51 @@
+name: publish
+
+# push markdown to main -> the site rebuilds and ships itself. that's the
+# whole publishing pipeline. no cms, no admin panel, no button to click.
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'notes/**'
+      - 'research/**'
+      - 'writing/**'
+      - 'logs/**'
+      - 'marginalia.quantara.cv/**'
+      - 'publish/**'
+      - 'soul.md'
+      - 'backlog.md'
+      - '.github/workflows/publish.yml'
+  workflow_dispatch:
+
+# two pushes in a row shouldn't race each other into the same docroot
+concurrency:
+  group: publish
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # build.py dates entries by when they first landed in git, so it
+          # needs the actual history, not a shallow clone
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: install
+        run: pip install -r publish/requirements.txt
+
+      - name: build
+        run: python publish/build.py
+
+      - name: deploy
+        env:
+          CPANEL_API_TOKEN: ${{ secrets.CPANEL_API_TOKEN }}
+        run: python publish/deploy.py

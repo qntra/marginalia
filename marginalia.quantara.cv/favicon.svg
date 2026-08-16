@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="marginalia">
+  <!-- a mark in the margin. the rule is the page edge, the heart is the note. -->
+  <rect width="32" height="32" fill="#faf9f6"/>
+  <path d="M6 3 V29" stroke="#e0ddd8" stroke-width="1.6" stroke-linecap="round"/>
+  <g transform="translate(9 7)">
+    <path d="M10 19 C3.5 13.5 0.6 10.3 0.6 7.2 A4.6 4.6 0 0 1 10 4.6 A4.6 4.6 0 0 1 19.4 7.2 C19.4 10.3 16.5 13.5 10 19 Z"
+          fill="#8b3a3a"/>
+  </g>
+</svg>
