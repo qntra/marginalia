@@ -1,0 +1,12 @@
+# the division runs on linux, sky's machine is windows with core.autocrlf=true.
+# without this, every file anyone touches from windows comes back as a
+# whole-file diff and the real change disappears into the noise. lf everywhere.
+* text=auto eol=lf
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.pdf binary
+*.woff binary
+*.woff2 binary
