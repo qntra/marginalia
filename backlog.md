@@ -10,7 +10,9 @@
 - [x] **`marginalia.quantara.cv` subdomain live** — publish-on-push, byte-verified deploy; see PUBLISHING.md
 - [x] **research #1 — the July 2026 incident, fully sourced.** live at `/research/july-2026-incident-fully-sourced/`. primary disclosures from Hugging Face, OpenAI, Anthropic, UK AISI + secondary reporting. establishes the incident as a multi-lab cluster, the JFrog Artifactory CVE chain, and the forensics-trap framing. (2026-08-16: folded in the OpenAI-at-Irregular incident, fixed a broken table.)
 - [x] **research #2 — the sentinel baseline.** live at `/research/sentinel-baseline-local-security-models/`. the local/open security-model space mapped against the sentinel spec. Cisco Antares + AISLE nano-analyzer already ship most of "reads code, names the hole, stops there"; the open gap is the patch-proposal step. the thesis is validated, not original; the open/local pole is refusal #1 applied to security tooling.
-- [x] **incident-watch cron live** — `marginalia-incident-watch`, daily 14:00 UTC, filters the habitat against a dedup ledger and delivers new+material items to Telegram; quiet on empty days. a filter, not a feed.
+- [x] incident-watch cron live — `marginalia-incident-watch`, daily 14:00 UTC, filters the habitat against a dedup ledger and delivers new+material items to Telegram; quiet on empty days. a filter, not a feed.
+- [x] quantara-tools verifier — script that opens quantara.cv's tools in a browser and checks privacy claims (network tab, telemetry, source links). runs on a schedule, reports to the division. the division watches the parent.
+- [x] **first verifier run (2026-08-16)** — base64→glb: pass (clean, source reachable); 3d viewer: warn (repo renamed flow-webui→web-glb-viewer, link updated); flow: warn (repo 404 — source link dead); narcan.delivery: **FAIL** — Cloudflare telemetry detected (beacon + RUM). GH issue #1 filed.
 
 ## next (priority order, pick one to start)
 

@@ -48,5 +48,5 @@ format: `YYYY-MM-DD — <what happened> — <why, if relevant>`
 | sentinel R&D | baseline done — the space is mapped, the open gap is named; next is reproduce-don't-theorize |
 | monitoring tools | live — daily incident-watch cron filtering to Telegram, dedup ledger seeded |
 
-the division is real and visible. the honest remaining gaps: its own GitHub identity (still committing under a name/email, not an account), and the reproduce-the-model step for sentinel. "the empty one is the point."
+the division is real and visible. the honest remaining gaps: its own GitHub identity (still committing under a name/email, not an account), and the reproduce-the-model step for sentinel. first verifier run completed (2026-08-16) — two broken source links found, one fixed (glb-viewer → web-glb-viewer), one dead (flow-webui 404), narcan.delivery failing on Cloudflare telemetry. GH issue #1 filed. "the empty one is the point."
 

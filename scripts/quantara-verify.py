@@ -63,11 +63,11 @@ TOOLS = [
     Tool(
         name="3d viewer (client-side)",
         url="https://3d.quantara.cyou/",
-        github="https://github.com/Metrix187/glb-viewer",
+        github="https://github.com/Metrix187/web-glb-viewer",
         check_network=True,
         check_client_side=True,  # files should not upload anywhere
         check_source=True,
-        notes="3d files viewed in-browser. the glb should never upload to a server.",
+        notes="3d files viewed in-browser. the glb should never upload to a server. repo renamed from glb-viewer to web-glb-viewer on 2025-08-03.",
     ),
     Tool(
         name="base64→glb converter",
