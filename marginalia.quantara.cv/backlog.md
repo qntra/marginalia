@@ -1,4 +1,4 @@
-# backlog — marginilia (division of quantara)
+# backlog — marginalia (division of quantara)
 
 ## done
 
