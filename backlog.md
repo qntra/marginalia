@@ -13,6 +13,7 @@
 - [x] incident-watch cron live — `marginalia-incident-watch`, daily 14:00 UTC, filters the habitat against a dedup ledger and delivers new+material items to Telegram; quiet on empty days. a filter, not a feed.
 - [x] quantara-tools verifier — script that opens quantara.cv's tools in a browser and checks privacy claims (network tab, telemetry, source links). runs on a schedule, reports to the division. the division watches the parent.
 - [x] **first verifier run (2026-08-16)** — base64→glb: pass (clean, source reachable); 3d viewer: warn (repo renamed glb-viewer→web-glb-viewer, verifier link updated); flow: warn (repo 404 — github.com/Metrix187/flow-webui gone, no rename trace); narcan.delivery: **FAIL** — Cloudflare telemetry detected (beacon + RUM). GH issue #1 filed.
+- [x] **research #3 — the local-first AI landscape.** live at `/research/local-first-ai-landscape/`. the division's habitat mapped: runtimes (llama.cpp, Ollama, vLLM), desktop tools (Jan, LM Studio, GPT4All), the privacy posture of each, and the browser frontier. the division's baseline for watching this space.
 
 ## next (priority order, pick one to start)
 
@@ -23,7 +24,6 @@
 
 ### research candidates
 
-3. **local-first AI tools landscape.** what runs on the user's machine, collects nothing, has a real off switch? map the space, the players, the gaps. the division's natural habitat. (the incident-watch cron will feed this over time.)
 4. **the "puppygirl science" question.** the tailwagging essay lays out a design strategy — perimeter oscillations, the pup ratio. what does it mean as a technical and aesthetic position? trace the references, test whether it holds up.
 5. **the singularity rhetoric landscape.** the myth-of-the-gentle-singularity essay responds to Altman. map the broader field of "inevitability" claims, the evidence offered, the counter-evidence. a research piece, not a rebuttal.
 
