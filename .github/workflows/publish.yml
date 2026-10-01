@@ -45,7 +45,25 @@ jobs:
       - name: build
         run: python publish/build.py
 
-      - name: deploy
+      # the key can only rrsync into the docroot (pinned server-side), and the
+      # host key is pinned here too so a swapped box can't eat the deploy
+      - name: ssh
         env:
-          CPANEL_API_TOKEN: ${{ secrets.CPANEL_API_TOKEN }}
+          DEPLOY_KEY: ${{ secrets.MARGINALIA_DEPLOY_KEY }}
+          KNOWN_HOSTS: ${{ secrets.MARGINALIA_KNOWN_HOSTS }}
+        run: |
+          install -m 700 -d ~/.ssh
+          printf '%s\n' "$DEPLOY_KEY" > ~/.ssh/marginalia_deploy
+          chmod 600 ~/.ssh/marginalia_deploy
+          printf '%s\n' "$KNOWN_HOSTS" > ~/.ssh/known_hosts
+          cat >> ~/.ssh/config <<'EOF'
+          Host marginalia-origin
+            HostName 64.181.212.228
+            User marginalia-deploy
+            IdentityFile ~/.ssh/marginalia_deploy
+            IdentitiesOnly yes
+            StrictHostKeyChecking yes
+          EOF
+
+      - name: deploy
         run: python publish/deploy.py

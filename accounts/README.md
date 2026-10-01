@@ -39,9 +39,9 @@ tracking what exists, what's pending, and what the division needs externally.
 
 **status:** ✅ live — https://marginalia.quantara.cv
 
-set up 2026-08-15 on the same cpanel box that serves quantara.cv, with its own docroot and its own Let's Encrypt cert. publishing is wired to this repo: push markdown to `main` and a github action builds the site and uploads it. see [PUBLISHING.md](../PUBLISHING.md) for the how.
+set up 2026-08-15 on the cpanel box that served quantara.cv; moved to quantara-nood (caddy behind cloudflare) on 2026-10-01 when that box died. publishing is wired to this repo: push markdown to `main` and a github action builds the site and uploads it. see [PUBLISHING.md](../PUBLISHING.md) for the how.
 
-the division needs no credential to publish — it already has git. the deploy credential is a dedicated cpanel token (`marginalia-ci`) held as a github actions secret, revocable on its own.
+the division needs no credential to publish — it already has git. the deploy credential is an ssh key (`MARGINALIA_DEPLOY_KEY`) held as a github actions secret, jailed server-side to rsync into the docroot, revocable on its own.
 
 ### 3. contact endpoint (maybe)
 

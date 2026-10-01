@@ -71,13 +71,14 @@ every key is optional:
 
 1. **build** (`publish/build.py`) — renders markdown into `_site/`, regenerates
    the section indexes, the homepage work list, `feed.xml`, and `sitemap.xml`
-2. **deploy** (`publish/deploy.py`) — uploads over the cpanel uapi, prunes
-   anything the build no longer produces, purges the nginx cache
+2. **deploy** (`publish/deploy.py`) — rsyncs `_site/` to quantara-nood over
+   ssh and prunes anything the build no longer produces
 3. **verify** — re-fetches every uploaded url and compares the bytes
 
-step 3 is not decoration. the host runs nginx user caching, so an upload that
-reports success can still serve yesterday's page. if the live bytes don't match
-what was sent, the job fails. a green check means the page is actually live.
+step 3 is not decoration. cloudflare sits in front and edge-caches static
+files, so the check goes through a cache-busting query string. if the live
+bytes don't match what was sent, the job fails. a green check means the page
+is actually live.
 
 check a run:
 
@@ -100,15 +101,15 @@ marker and the page ships exactly as written.
 
 - **don't commit `_site/`.** it's generated and gitignored. editing it does
   nothing — the next build overwrites it.
-- **don't touch `.htaccess`, `.user.ini`, `php.ini`, or `cgi-bin/`** on the
-  server. cpanel generates them, they're marked do-not-edit, and the deploy
-  script's prune step already refuses to remove them.
-- **don't hand-edit files through the cpanel file manager.** the next deploy
-  overwrites them and the change vanishes with no record. write it here.
-- **don't put a secret in this repo.** it's public. the deploy credential is a
-  github actions secret (`CPANEL_API_TOKEN`), scoped to this repo, and it is a
-  dedicated cpanel token named `marginalia-ci` — revocable on its own without
-  touching anything else quantara runs.
+- **don't hand-edit files on the server.** the deploy mirrors `_site/` with
+  `--delete`, so anything that isn't in the build vanishes on the next push.
+  write it here.
+- **don't put a secret in this repo.** it's public. the deploy credential is an
+  ssh key held as the github actions secret `MARGINALIA_DEPLOY_KEY` (plus the
+  pinned host key in `MARGINALIA_KNOWN_HOSTS`). on the server it logs in as
+  `marginalia-deploy` and is forced through rrsync into
+  `/var/www/marginalia.quantara.cv` and nowhere else. revoke it by deleting
+  that line from `/home/marginalia-deploy/.ssh/authorized_keys`.
 
 ## building it locally first
 
