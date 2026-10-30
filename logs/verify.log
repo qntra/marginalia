@@ -4,3 +4,34 @@
   3d viewer:   ! warn (source repo not reachable: github.com/Metrix187/glb-viewer)
   flow:        ! warn (source repo not reachable: github.com/Metrix187/flow-webui)
   narcan:      ✗ fail — Cloudflare telemetry detected (static.cloudflareinsights.com/beacon.min.js + cloudflareinsights.com/cdn-cgi/rum). console error: CSP directive blocks inline scripts. narcan finds naloxone and is a sensitive-query tool — it should not phone home.
+2026-09-12 10:12:04 UTC — verify run: 4 tools, 2 pass, 1 warn, 1 fail. FAIL: flow (3 telemetry-like requests, repo unreachable). WARN: narcan.delivery (CSP inline script violation).
+2026-09-13 10:13:01 UTC | tools=4 pass=1 warn=1 fail=2 | flow:load_timeout 3d:load_timeout base64:pass narcan:csp_warn
+2026-09-14 10:13:34 UTC | tools=4 | pass=2 warn=1 fail=1 | flow FAIL (telemetry+repo) | narcan WARN (CSP)
+2026-09-15 10:14:52 UTC | run complete | 4 tools | pass=2 warn=1 fail=1 | flow FAIL (telemetry+source), narcan WARN (CSP)
+2026-09-16 10:14:05 | verify run | tools=4 pass=2 warn=1 fail=1 | flow=fail (telemetry+outbound+source) narcan=warn (CSP inline script) 3d=pass base64=pass
+2026-09-17 10:15:16 UTC — 4 tools: flow FAIL (verifier false-positives on WebLLM model artifact downloads + github.com/Metrix187/flow-webui unreachable), narcan.delivery WARN (CSP inline script error), 3d viewer PASS, base64→glb PASS
+2026-09-18 10:11 UTC | checked: 4 | pass: 2 | warn: 1 | fail: 1 | flow: telemetry+outbound+csp; narcan: console error
+2026-09-19 10:14 UTC — verify run: 4 tools, 2 pass, 1 warn, 1 fail (flow: page load timeout)
+2026-09-20 10:15:18 UTC | 4 tools | 2 pass | 1 warn | 1 fail | flow: 3 fails (telemetry, outbound, source); narcan: 1 warn (CSP)
+2026-09-21 10:11:48 UTC | 4 tools | 2 pass | 1 warn | 1 fail | flow: FAIL (telemetry+source), narcan: WARN (CSP)
+2026-09-22 10:13:33 UTC | 4 tools | 2 pass | 1 warn | 1 fail | flow FAIL (3 telemetry-like requests, repo unreachable), narcan WARN (CSP inline script violation)
+[2026-09-23 10:15 UTC] verify: 4 tools, 2 pass, 1 warn, 1 fail — flow FAIL (3 outbound calls, source unreachable), narcan WARN (CSP error)
+2026-09-24 10:02:00 UTC	2026-09-24	s=quantara-verify.py	p=2	w=1	f=1
+[2026-09-24 10:02 UTC] verify: 4 tools, 2 pass, 1 warn, 1 fail — flow FAIL (3 outbound HF/GH calls, source repo unreachable), narcan WARN (CSP inline-script violation)
+[2026-09-25T10:01:26Z] verify: 4 tools (2 pass, 1 warn, 1 fail) — flow FAIL (telemetry+client-side+source), narcan WARN (CSP console err)
+2026-09-26T10:01:15Z	verify run	pass=2 warn=1 fail=1
+2026-09-27	verify	tools=4 pass=1 warn=1 fail=2
+2026-09-28T10:00:52Z	verify	run=2026-09-28T10:00Z	tools=4	pass=2	warn=1	fail=1	flow=FAIL(telemetry+client_side+source)	narcan=WARN(csp_inline)
+[2026-10-01T10:00:33Z] verify run: 4 checked, 0 pass, 1 warn, 3 fail — 3 DNS/unreachable (flow, 3d, base64), narcan warn (CSP inline script). exit=1
+2026-10-02 pass=0 warn=1 fail=3 — flow.quantara.cyou DNS fail, 3d.quantara.cyou DNS fail, base64.quantara.cv timeout, narcan.delivery warn (CSP inline script)
+2026-10-03T10:00Z	verify	pass=1 warn=1 fail=2 — base64.quantara.cv PASS (no telemetry, client-side, source public); narcan.delivery WARN (CSP inline script blocked); flow.quantara.cyou FAIL (DNS unresolvable); 3d.quantara.cyou FAIL (DNS unresolvable). exit=1
+2026-10-04 10:00 UTC — 4 tools: 1 pass, 1 warn, 2 fail (flow+3d DNS fail, narcan CSP warn)
+2026-10-05T10:00:22Z — verify run: 4 tools, 1 pass, 1 warn, 2 fail (flow+3d DNS-unresolved, narcan CSP warn, base64 pass)
+2026-10-06T10:00:33Z	verify: 4 tools, 1 pass, 1 warn, 2 fail (flow+3d DNS down, narcan CSP warn)
+2026-10-07 10:00 UTC	quantara-verify: 4 checked, 1 pass, 1 warn, 2 fail (flow.quantara.cyou + 3d.quantara.cyou DNS NXDOMAIN; narcan.delivery CSP inline-script warn)	
+2026-10-08 10:00:29 UTC verify — 4 tools: 1 pass, 1 warn, 2 fail (flow+3d DNS NXDOMAIN; narcan CSP warn; base64 clean)
+2026-10-09T10:00:26Z verify: 4 tools — 1 pass, 1 warn, 2 fail (flow + 3d DNS unresolved, narcan CSP warn)
+2026-10-10T10:00:28Z	quantara-verify	pass=1 warn=1 fail=2
+2026-10-11T10:00:20Z	verify: 4 tools — 1 pass, 1 warn, 2 fail (flow + 3d DNS NXDOMAIN; narcan CSP warn; base64 clean)
+2026-10-12 10:00:24 | verify: 4 tools, 1 pass, 1 warn, 2 fail — flow+3d DNS unresolvable (.cyou), base64 pass, narcan warn (CSP inline-script)
+2026-10-30T04:29:45Z verify: 1 pass, 1 warn, 2 fail (flow + 3d DNS NXDOMAIN; narcan CSP inline-script warn)

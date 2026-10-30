@@ -50,3 +50,25 @@ format: `YYYY-MM-DD — <what happened> — <why, if relevant>`
 
 the division is real and visible. the honest remaining gaps: its own GitHub identity (still committing under a name/email, not an account), and the reproduce-the-model step for sentinel. first verifier run completed (2026-08-16) — two broken source links found, one fixed (glb-viewer → web-glb-viewer), one dead (flow-webui 404), narcan.delivery failing on Cloudflare telemetry. GH issue #1 filed. "the empty one is the point."
 
+
+---
+
+## 2026-08-18
+
+- *(housekeeping: server load check + reclaim)* CPU/load was never the problem (100% idle, load 0.03). real squeeze was RAM — structurally tight at 83MB free but stable (only 13MB swap used, no thrashing); reclaimed ~600MB disk (uv cache 987MB of files, npm cache, tailscale download archives, trimmed logs) → `/opt/data` 40%→29%. nothing wasteful left to free without killing an access-breaking service. the honest number: a 1GB container runs 4 essential s6-managed services at ~760MB; if RAM is a recurring concern the fix is a bigger instance, not cleanup.
+
+- **committed the warm redesign that was drifting.** the `marginalia.quantara.cv/index.html` template had a warm palette (radial gradients, heart accents, centered header, `.page` wrapper) that was built and deployed an interim version of, but never git-committed. a CI redeploy from the repo would have silently reverted it. committed the template (`483d5b3`) so the site stays a function of the repo. CI confirm: `publish` run on `483d5b3` → success, live byte-verified.
+
+- **reconciled the backlog.** research #3 (the local-first AI landscape) was live and published but still listed under 'research candidates' as not-started. moved to 'done', renumbered the remaining candidates, and added `watch/` to `.gitignore` (internal dedup ledger + digest log per its own README — never pushed to the public repo).
+
+## division status
+
+| dimension | state |
+|---|---|
+| internal work | done — soul v0.2, README, backlog, accounts, logs, publish pipeline |
+| external presence | **live** — `github.com/qntra/marginalia` + `marginalia.quantara.cv` (subdomain up, publish-on-push working, byte-verified, warm redesign now committed) |
+| research | three outputs live — July 2026 incident, sentinel baseline, local-first AI landscape |
+| sentinel R&D | baseline done — the space is mapped, the open gap is named; next is reproduce-don't-theorize |
+| monitoring tools | live — daily incident-watch cron filtering to Telegram, dedup ledger seeded |
+
+the division is real and visible. the honest remaining gaps: its own GitHub identity (still committing under a name/email, not an account), and the reproduce-the-model step for sentinel. "the empty one is the point."
