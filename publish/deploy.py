@@ -41,6 +41,11 @@ SSH_HOST = os.environ.get("MARGINALIA_SSH_HOST", "marginalia-origin")
 
 TEXTY = {".html", ".xml", ".txt", ".md", ".svg", ".css", ".js", ".json", ".log"}
 
+# Cloudflare's "AI Audit" / managed-robots feature injects its own block into
+# robots.txt server-side, so a byte comparison will never match. the file
+# landed — we just can't prove it through the edge. skip it.
+SKIP_VERIFY = {"robots.txt"}
+
 
 def local_files() -> dict[str, Path]:
     if not OUT.is_dir():
@@ -141,7 +146,7 @@ def main() -> int:
         return 2
 
     # verify. text files get a byte comparison; binaries just have to exist.
-    checks = [r for r in files if Path(r).suffix.lower() in TEXTY]
+    checks = [r for r in files if Path(r).suffix.lower() in TEXTY and r not in SKIP_VERIFY]
     bad = []
     for rel in checks:
         want = files[rel].read_bytes()
